@@ -1,11 +1,11 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
 
-  "Description" : "AWS CloudFormation Template to launch a Spot Fleet of Ether mining instances",
+  "Description" : "AWS CloudFormation Template to launch a Spot Fleet of Dagger mining instances",
 
   "Parameters" : {
     "FleetSize" : {
-      "Description" : "The target number of GPUs you want to use for mining",
+      "Description" : "The target number of CPUs you want to use for mining",
       "Type" : "Number",
       "Default" : 1,
       "MinValue" : 1,
@@ -13,7 +13,7 @@
     },
 
     "SpotPrice" : {
-      "Description" : "The maximum amount, in USD, you're willing to spend per GPU, per hour (default $0.20)",
+      "Description" : "The maximum amount, in USD, you're willing to spend per CPU, per hour (default $0.20)",
       "Type" : "Number",
       "Default" : 0.2,
       "MinValue" : 0.01,
@@ -21,7 +21,7 @@
     },
 
     "Wallet" : {
-      "Description" : "Your Ethereum wallet address",
+      "Description" : "Your Dagger wallet address",
       "Type" : "String",
       "Default" : "0xf395eed96579a679859dacaf0bfda096f18fbffb"
     }  
@@ -107,7 +107,7 @@
                 "TargetCapacity": { "Ref": "FleetSize" },
                 "LaunchSpecifications": [
                 {
-                    "InstanceType": "g3.4xlarge",
+                    "InstanceType": "c4.4xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -119,7 +119,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.8xlarge",
+                    "InstanceType": "c4.8xlarge",
                     "WeightedCapacity": 2,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -131,7 +131,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.16xlarge",
+                    "InstanceType": "c4.16xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -143,7 +143,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.2xlarge",
+                    "InstanceType": "c2.2xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -155,7 +155,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.8xlarge",
+                    "InstanceType": "c2.8xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -167,7 +167,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "p2.xlarge",
+                    "InstanceType": "c2.xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -179,7 +179,7 @@
                     ]]}}
                 },
                                 {
-                    "InstanceType": "p2.8xlarge",
+                    "InstanceType": "c2.8xlarge",
                     "WeightedCapacity": 8,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -191,7 +191,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "p2.16xlarge",
+                    "InstanceType": "c2.16xlarge",
                     "WeightedCapacity": 16,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -218,7 +218,7 @@
                 "TargetCapacity": { "Ref": "FleetSize" },
                 "LaunchSpecifications": [
                 {
-                    "InstanceType": "g3.4xlarge",
+                    "InstanceType": "c3.4xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -230,7 +230,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.8xlarge",
+                    "InstanceType": "c3.8xlarge",
                     "WeightedCapacity": 2,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -242,7 +242,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.16xlarge",
+                    "InstanceType": "c3.16xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -269,7 +269,7 @@
                 "TargetCapacity": { "Ref": "FleetSize" },
                 "LaunchSpecifications": [
                 {
-                    "InstanceType": "g3.4xlarge",
+                    "InstanceType": "c.4xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -281,7 +281,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.8xlarge",
+                    "InstanceType": "c3.8xlarge",
                     "WeightedCapacity": 2,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -293,7 +293,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.16xlarge",
+                    "InstanceType": "c3.16xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -305,7 +305,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.2xlarge",
+                    "InstanceType": "c2.2xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -317,7 +317,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.8xlarge",
+                    "InstanceType": "c2.8xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -344,7 +344,7 @@
                 "TargetCapacity": { "Ref": "FleetSize" },
                 "LaunchSpecifications": [
                 {
-                    "InstanceType": "g3.4xlarge",
+                    "InstanceType": "c3.4xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -356,7 +356,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.8xlarge",
+                    "InstanceType": "c3.8xlarge",
                     "WeightedCapacity": 2,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -368,7 +368,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g3.16xlarge",
+                    "InstanceType": "c3.16xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -380,7 +380,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.2xlarge",
+                    "InstanceType": "c2.2xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -392,7 +392,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "g2.8xlarge",
+                    "InstanceType": "c2.8xlarge",
                     "WeightedCapacity": 4,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -404,7 +404,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "p2.xlarge",
+                    "InstanceType": "c2.xlarge",
                     "WeightedCapacity": 1,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -416,7 +416,7 @@
                     ]]}}
                 },
                                 {
-                    "InstanceType": "p2.8xlarge",
+                    "InstanceType": "c2.8xlarge",
                     "WeightedCapacity": 8,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
@@ -428,7 +428,7 @@
                     ]]}}
                 },
                 {
-                    "InstanceType": "p2.16xlarge",
+                    "InstanceType": "c2.16xlarge",
                     "WeightedCapacity": 16,
                     "ImageId": { "Fn::FindInMap": [ "AWSRegion2AMI", { "Ref" : "AWS::Region" }, "AMI" ] },
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
