@@ -3,6 +3,8 @@
 
   "Description" : "AWS CloudFormation Template to launch a Spot Fleet of Dagger mining instances",
 
+  // TODO Get the thread size set properly and clean out more redundant spot instances.
+
   "Parameters" : {
     "FleetSize" : {
       "Description" : "The target number of CPUs you want to use for mining",
@@ -115,7 +117,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [ 
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200" 
                     ]]}}
@@ -127,7 +129,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [ 
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200" 
                     ]]}}
@@ -139,7 +141,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [ 
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200" 
                     ]]}}
@@ -151,7 +153,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [ 
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200" 
                     ]]}}
@@ -163,7 +165,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [ 
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200" 
                     ]]}}
@@ -190,7 +192,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -202,7 +204,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -214,7 +216,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -226,7 +228,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -238,7 +240,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -265,7 +267,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -277,7 +279,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -289,7 +291,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -301,7 +303,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
@@ -313,7 +315,7 @@
                     "SecurityGroups": [ { "GroupId": { "Fn::GetAtt": [ "InstanceSecurityGroup", "GroupId" ] } } ],
                     "UserData" : { "Fn::Base64" : { "Fn::Join" : [ "", [
                         "#!/bin/bash -xe\n",
-                        "cheatcoin/cheatcoin/xdag -m 8 -d 47.93.223.203:13654",
+                        "cheatcoin/cheatcoin/xdag -rm 4 -d 47.93.223.203:13654",
                         { "Ref" : "Wallet" },
                         "/aws$(ec2metadata --instance-id)/a@b.com --cuda-devices $(nvidia-smi | grep 'Off' | awk '{print $2}' ORS=' ') --farm-recheck 200"
                     ]]}}
